@@ -31,7 +31,5 @@ function logger(req, res, next) {
 
 
 
-//Grands auth token from header
-// const token = req.header("authorization");
-// const user
+
 module.exports = server;
