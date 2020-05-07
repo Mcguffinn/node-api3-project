@@ -30,9 +30,12 @@ router.delete('/:id', validatePostId, async(req, res) => {
 });
 
 router.put('/:id', validatePostId, async(req, res) => { 
+  const id = req.params.id
+  const changes = req.body
   try{
-    await Posts.update(req.params.id, req.body.text)
-  }catch{
+    const proc = await Posts.update(id, changes);
+    res.status(200).json({proc})
+  }catch(err){
     res.status(200).json({message: `This post ${req.params.id} was not updated...`, err})
   }
 });
